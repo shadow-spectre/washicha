@@ -22,6 +22,14 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+@font-face {
+  font-family: 'Paytone One';
+  font-style: NORMAL;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/PaytoneOne-Regular.ttf') format('ttf');
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
