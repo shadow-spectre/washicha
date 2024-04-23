@@ -3,7 +3,7 @@ const Footer = () => {
       <>
           <footer className="flex justify-center flex-col items-center bg-[#86f867]">
               <div className="py-2">
-                  <address className="italic">Adress here</address>
+                  <address className="italic">Address here</address>
               </div>
               <div className="py-2">
                   <input type="email" name="subscriberEmail" id="subscriberEmail"  placeholder="example@urmail.com" />

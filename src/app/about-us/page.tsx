@@ -3,10 +3,10 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
     title: "WashiTea | About",
-    description: "Homepage of About",
-  };
+    description: "Homepage of WashiCha",
+};
 
-export const About= () => {
+const About= () => {
   return (
     <>
         <Head>
@@ -16,3 +16,5 @@ export const About= () => {
     </>
   )
 }
+
+export default About

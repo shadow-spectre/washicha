@@ -5,8 +5,10 @@ export const metadata: Metadata = {
     description: "Contacts Page of WashiCha",
 };
 
-export const Contacts = () => {
+const Contacts = () => {
   return (
     <div>Contacts</div>
   )
 }
+
+export default Contacts
