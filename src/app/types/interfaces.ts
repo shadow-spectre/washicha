@@ -1,9 +1,10 @@
 export interface IfHomepageSection {
     className: string;
-    cards: (number | string | JSX.Element)[];
+    cardsData: IfCards[];
 }
 
 export interface IfCards{
+    id: string;
     className: string;
     heading: string;
     subheading: string;

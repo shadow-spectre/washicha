@@ -3,6 +3,7 @@ import FukamushiImg from "./assets/images/Fukamushi tea.jpg";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
+import { IfCards } from './types/interfaces';
 
 export const metadata: Metadata = {
   title: "WashiCha | Home",
@@ -10,16 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-    let mainTeas = []
-    try {
-        const res = await fetch('https://washicha-ex-server.vercel.app/api/dummy/teas',
-                            { next: { revalidate: 800 }})
-        mainTeas.push(await res.json()) 
-    } catch (err) {
-        throw console.error(err)   
-    }
-    
-    //   const boom = ["number", 9999, "asdw"]
+    const res = await fetch('https://washicha-ex-server.vercel.app/api/dummy/teas',
+                        { next: { revalidate: 800 }})
+    const mainTeas = await res.json() 
   return (
   <>
     <Head>
@@ -51,7 +45,7 @@ export default async function Home() {
         </div>
         <HomepageSection
             className="flex justify-center h-screen items-center px-[12%]"
-            cards={mainTeas}
+            cardsData={mainTeas}
         >
         </HomepageSection>
         <div className="flex justify-center h-screen items-center px-[12%]">

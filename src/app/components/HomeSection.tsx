@@ -1,20 +1,20 @@
-import { IfHomepageSection } from "../types/interfaces"
+import { IfHomepageSection } from '../types/interfaces';
 import Cards from './Cards';
 // import goimage from "../assets/images/Genmaicha.jpg"
-import { teas } from "../contexts/contexts";
+// import { teas } from "../contexts/contexts";
 
-const HomepageSection:React.FC<IfHomepageSection> = ({className}) => {
-    // const [stringContent, numberContent, buttonElement] = cards
+const HomepageSection:React.FC<IfHomepageSection> = ({className, cardsData}) => {
+    console.log(cardsData)
     // const [className, heading, subheading, imgage, currency, price, button1, button2, stock] = cards 
-    
 
     return (
         <>
             <div className={className}>
                 <div className="cards-container flex">
-                    {teas. map(({heading, subheading, button1, button2, price, currency, imgage, stock}) => (
+                    {cardsData.map(({id, heading, subheading, button1, button2, price, currency, imgage, stock}) => (
                         <Cards
-                            key={heading}
+                            key={id}
+                            id={id}
                             className="p-3"
                             heading={heading}
                             subheading={subheading}
