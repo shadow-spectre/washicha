@@ -1,11 +1,9 @@
-import React from 'react'
-
 import type { Metadata } from "next";
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "WashiTea | Login",
-    description: "Login Page of About",
+    title: "WashiCha | Login",
+    description: "Login Page of WashiCha",
 };
 
 const Login = () => {

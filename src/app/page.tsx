@@ -9,8 +9,17 @@ export const metadata: Metadata = {
   description: "Homepage of WashiCha",
 };
 
-export default function Home() {
-  const boom = ["number", 9999, "asdw"]
+export default async function Home() {
+    let mainTeas = []
+    try {
+        const res = await fetch('https://washicha-ex-server.vercel.app/api/dummy/teas',
+                            { next: { revalidate: 800 }})
+        mainTeas.push(await res.json()) 
+    } catch (err) {
+        throw console.error(err)   
+    }
+    
+    //   const boom = ["number", 9999, "asdw"]
   return (
   <>
     <Head>
@@ -42,7 +51,7 @@ export default function Home() {
         </div>
         <HomepageSection
             className="flex justify-center h-screen items-center px-[12%]"
-            cards={boom}
+            cards={mainTeas}
         >
         </HomepageSection>
         <div className="flex justify-center h-screen items-center px-[12%]">
