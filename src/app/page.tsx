@@ -1,19 +1,31 @@
 import HomepageSection from './components/HomeSection';
 import FukamushiImg from "./assets/images/Fukamushi tea.jpg";
-import type { Metadata } from 'next';
+import type { GetServerSideProps, InferGetServerSidePropsType, Metadata } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
+import { IfCards } from './types/interfaces';
 
 export const metadata: Metadata = {
   title: "WashiCha | Home",
   description: "Homepage of WashiCha",
 };
 
-export default async function Home() {
-    const res = await fetch('https://washicha-ex-server.vercel.app/api/dummy/teas',
-                        { next: { revalidate: 800 }})
-    const mainTeas = await res.json() 
-  return (
+export const getServerSideProps = (async () => {
+    // Fetch data from external API
+    const res = await fetch('https://washicha-ex-server.vercel.app/api/dummy/teas', { next: { revalidate: 800 }})
+    const mainTeas: IfCards[] = await res.json()
+    // Pass data to the page via props
+    return { props: { mainTeas } }
+  }) satisfies GetServerSideProps<{ mainTeas: IfCards[] }>
+  
+// export default async function Home() {
+//     const res = await fetch('https://washicha-ex-server.vercel.app/api/dummy/teas',
+//                         { next: { revalidate: 800 }})
+// const mainTeas = await res.json() 
+export default function Home({
+    mainTeas,
+  }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    return (
   <>
     <Head>
       <link rel="canonical" href="/home" data-rh="true" />
