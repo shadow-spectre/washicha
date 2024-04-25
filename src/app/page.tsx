@@ -3,7 +3,6 @@ import FukamushiImg from "./assets/images/Fukamushi tea.jpg";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
-import { IfCards } from './types/interfaces';
 
 export const metadata: Metadata = {
   title: "WashiCha | Home",

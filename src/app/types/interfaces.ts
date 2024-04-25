@@ -19,4 +19,5 @@ export interface IfCards{
 export interface IfButton{
     className: string;
     text: string;
+    productKey?: string;
 }

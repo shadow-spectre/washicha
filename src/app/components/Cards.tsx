@@ -3,8 +3,8 @@ import imgage from "../assets/images/Genmaicha.jpg"
 import Image from "next/image"
 import Button from "./Button"
 
-export const Cards:React.FC<IfCards> = ({className, heading, subheading, currency, price, stock, button1, button2}) => {
-  stock = stock + 1
+export const Cards:React.FC<IfCards> = ({id, className, heading, subheading, currency, price, stock, button1, button2}) => {
+  if(stock != undefined) stock = stock + 1;
   return (
     <>
         <div className={`w-fit flex flex-col rounded-lg transition-all duration-100 ease-in-out shadow-md shadow-black/30 bg-slate-100 m-2 shadow- ${className}`}>
@@ -16,10 +16,10 @@ export const Cards:React.FC<IfCards> = ({className, heading, subheading, currenc
               stock && <p className="text-sm">Availability: 
               { stock > 1  ? <span className="text-green-700 italic" >In stock</span>
                             : <span className="text-red-700 italic">Out of stock</span> }
-              </p> 
+              </p>
             }
             {(button1 || button2) && <div className="mt-2 flex gap-2 max-w-[210px]">
-              {<Button text={`${button1}`} className="text-[#539941] border-[#539941] border-solid border hover:border-transparent hover:text-white hover:bg-[#539941] font-bold shadow-none hover:shadow-md hover:shadow-black/30" />}
+              {<Button productKey={id} text={`${button1}`} className="text-[#539941] border-[#539941] border-solid border hover:border-transparent hover:text-white hover:bg-[#539941] font-bold shadow-none hover:shadow-md hover:shadow-black/30" />}
               {<Button text={`${button2}`} className="text-[#539941] border-[#539941] border-solid border hover:border-transparent  font-bold hover:shadow-md hover:shadow-black/30" />}
                </div> }
         </div>
